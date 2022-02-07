@@ -17,11 +17,15 @@ import tkinter as tk
 
 ############### VARIABLES GLOBALES ###############
 
-plateau = [[0,0,0],[0,0,0],[0,0,0]]
+taille_plateau = 3
+plateau = []
 
 ################### FONCTIONS ####################
 
-
+def lignes_et_colones():
+    for x in range (taille_plateau):
+        for y in range(taille_plateau):
+            
 
 
 
