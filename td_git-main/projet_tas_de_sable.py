@@ -17,7 +17,7 @@ import tkinter as tk
 
 ############### VARIABLES GLOBALES ###############
 
-
+plateau = [[0,0,0],[0,0,0],[0,0,0]]
 
 ################### FONCTIONS ####################
 
