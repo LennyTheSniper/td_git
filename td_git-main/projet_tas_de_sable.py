@@ -29,7 +29,7 @@ lignes_et_colones()
 
 
 root = tk.Tk()
-root.title("Calculatrice")
+root.title("Tas de Sable")
 canvas = tk.Canvas(root, width = CANVAS_WIDTH, height = CANVAS_HEIGHT, bg= "black")
 
 
