@@ -18,19 +18,20 @@ import tkinter as tk
 ############### VARIABLES GLOBALES ###############
 
 CANVAS_WIDTH, CANVAS_HEIGHT = 500, 500
-taille_plateau = int(input("entrez la taille du plateau"))
+taille_plateau = int(input("Entrez la taille du plateau: "))
 
 ################### FONCTIONS ####################
 
+
 def lignes_et_colones():
+    global plateau
     plateau = [[0]*taille_plateau]*taille_plateau
-    print(plateau)
 lignes_et_colones()
 
 
 root = tk.Tk()
 root.title("Tas de Sable")
-canvas = tk.Canvas(root, width = CANVAS_WIDTH, height = CANVAS_HEIGHT, bg= "black")
+canvas = tk.Canvas(root, width=CANVAS_WIDTH, height=CANVAS_HEIGHT, bg="black")
 
 
 
