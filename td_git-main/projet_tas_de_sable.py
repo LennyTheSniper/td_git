@@ -36,3 +36,4 @@ root.title("Calculatrice")
 
 canvas.grid(row=0, column=0,columnspan=4)
 root.mainloop()
+a
