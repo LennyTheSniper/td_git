@@ -32,8 +32,6 @@ root.title("Calculatrice")
 
 
 
-
-
 ############## CREATION DE LA FENETRE #############
 
 canvas.grid(row=0, column=0,columnspan=4)
