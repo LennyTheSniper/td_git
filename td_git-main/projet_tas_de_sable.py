@@ -16,6 +16,6 @@ from random import *
 
 ############### VARIABLES GLOBALES ##############
 
-
+plateau = [[0,0,0],[0,0,0],[0,0,0]]
 
 ################ FONCTIONS ##################
