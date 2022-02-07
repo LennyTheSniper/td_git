@@ -190,9 +190,7 @@ def print_on_canvas(WhatToShow):
     else:
         TextOnScreen = canvas.create_text(len(str(WhatToShow))*14.5, CANVAS_HEIGHT/2,
                                             text=WhatToShow,font=("Arial", "40"), fill="white")
-    print('Var1 = '+ str(Variable1))
-    print('Var2 = '+ str(Variable2))
-    print('Operator = '+ Operator)
+    
 
 
 ###############################################################
