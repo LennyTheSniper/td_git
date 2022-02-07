@@ -17,7 +17,7 @@ import tkinter as tk
 
 ############### VARIABLES GLOBALES ###############
 
-taille_plateau = 3
+taille_plateau = int(input("entrez la taille du plateau"))
 plateau = []
 
 ################### FONCTIONS ####################
