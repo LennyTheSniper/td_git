@@ -10,12 +10,31 @@ Mail prof : coline.gianfrotta@ens.uvsq.fr
 # https://github.com/LennyTheSniper/td_git/
 ###########################################
 
-############### IMPORTATION DES MODULES ################
+############ IMPORTATION DES MODULES #############
 
 from random import *
+import tkinter as tk
 
-############### VARIABLES GLOBALES ##############
+############### VARIABLES GLOBALES ###############
 
 
 
-################ FONCTIONS ##################
+################### FONCTIONS ####################
+
+
+
+
+
+root = tk.Tk()
+root.title("Calculatrice")
+
+
+
+
+
+
+
+############## CREATION DE LA FENETRE #############
+
+canvas.grid(row=0, column=0,columnspan=4)
+root.mainloop()

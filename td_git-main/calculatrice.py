@@ -19,7 +19,7 @@ Voilà voilà, bonne chance!
 
 import tkinter as tk
 from typing import Text
-from unittest import result
+#from unittest import result
 import math
 
 ###############################
