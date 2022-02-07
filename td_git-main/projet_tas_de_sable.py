@@ -17,8 +17,8 @@ import tkinter as tk
 
 ############### VARIABLES GLOBALES ###############
 
+CANVAS_WIDTH, CANVAS_HEIGHT = 500, 500
 taille_plateau = int(input("entrez la taille du plateau"))
-plateau = []
 
 ################### FONCTIONS ####################
 
@@ -30,7 +30,7 @@ lignes_et_colones()
 
 root = tk.Tk()
 root.title("Calculatrice")
-
+canvas = tk.Canvas(root, width = CANVAS_WIDTH, height = CANVAS_HEIGHT, bg= "black")
 
 
 
