@@ -27,6 +27,8 @@ taille_case_SIZE = CANVAS_SIZE // taille_plateau
 root = tk.Tk()
 root.title("Tas de Sable")
 canvas = tk.Canvas(root, width=CANVAS_SIZE, height=CANVAS_SIZE, bg="black")
+aleatoire = tk.Button(root, text='Génerer un terrain aleatoire', bg='grey')
+
 
 def lignes_et_colones():
     global plateau
@@ -53,5 +55,6 @@ quadrillage(taille_plateau)
 
 ############## CREATION DE LA FENETRE #############
 
-canvas.grid(row=0, column=0, columnspan=4)
+canvas.grid(row=0, column=1, columnspan=4)
+aleatoire.grid(row=0, column=0)
 root.mainloop()
