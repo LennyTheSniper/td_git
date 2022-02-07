@@ -23,10 +23,9 @@ plateau = []
 ################### FONCTIONS ####################
 
 def lignes_et_colones():
-    for x in range (taille_plateau):
-        for y in range(taille_plateau):
-            
-
+    plateau = [[0]*taille_plateau]*taille_plateau
+    print(plateau)
+lignes_et_colones()
 
 
 root = tk.Tk()
