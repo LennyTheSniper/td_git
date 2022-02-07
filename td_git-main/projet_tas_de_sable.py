@@ -37,8 +37,8 @@ def quadrillage(nombre_case):
     x = 0
     y = 0
     for i in range(nombre_case):
-        canvas.create_line(x,0,x,y+CANVAS_SIZE, fill="white")
-        canvas.create_line(0,y,x+CANVAS_SIZE,y, fill="white")
+        canvas.create_line(x, 0, x, y+CANVAS_SIZE, fill="white")
+        canvas.create_line(0, y, x+CANVAS_SIZE, y, fill="white")
         x += taille_case_SIZE
         y += taille_case_SIZE
 quadrillage(taille_plateau)
