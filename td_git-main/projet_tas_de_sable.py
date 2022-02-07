@@ -9,3 +9,13 @@ Mail prof : coline.gianfrotta@ens.uvsq.fr
 # William BRASSART
 # https://github.com/LennyTheSniper/td_git/
 ###########################################
+
+############### IMPORTATION DES MODULES ################
+
+from random import *
+
+############### VARIABLES GLOBALES ##############
+
+
+
+################ FONCTIONS ##################
