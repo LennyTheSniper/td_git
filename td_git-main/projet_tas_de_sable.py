@@ -2,7 +2,7 @@
 Mail prof : coline.gianfrotta@ens.uvsq.fr
 """
 
-###################
+###################s
 # MI TD1
 # Zachary MARIANI
 # Lenny BARBE
@@ -45,6 +45,13 @@ def quadrillage(nombre_case):
         y += taille_case_SIZE
 quadrillage(taille_plateau)
 
+'''
+def generation_terrain () :
+    for i in range taille_plateau :
+        a = random.randint(0,5)
+        plateau.append(a)
+        return plateau
+'''
 
 
 
