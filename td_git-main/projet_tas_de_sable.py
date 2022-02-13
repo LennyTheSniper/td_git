@@ -12,7 +12,7 @@ Mail prof : coline.gianfrotta@ens.uvsq.fr
 
 ############ IMPORTATION DES MODULES #############
 
-from random import *
+import random
 import tkinter as tk
 from turtle import color
 
@@ -27,13 +27,12 @@ taille_case_SIZE = CANVAS_SIZE // taille_plateau
 root = tk.Tk()
 root.title("Tas de Sable")
 canvas = tk.Canvas(root, width=CANVAS_SIZE, height=CANVAS_SIZE, bg="black")
-aleatoire = tk.Button(root, text='Génerer un terrain aleatoire', bg='grey')
 
 
-def lignes_et_colones():
+def plateau_vide():
     global plateau
     plateau = [[0]*taille_plateau]*taille_plateau
-lignes_et_colones()
+
 
 def quadrillage(nombre_case):
     x = 0
@@ -45,17 +44,15 @@ def quadrillage(nombre_case):
         y += taille_case_SIZE
 quadrillage(taille_plateau)
 
-'''
-def generation_terrain () :
-    for i in range taille_plateau :
-        a = random.randint(0,5)
-        plateau.append(a)
-        return plateau
-'''
+
+def generation_terrain():
+    global plateau
+    plateau = [[random.randint(0,5) for i in range(taille_plateau)] for j in range(taille_plateau)]
+    print(plateau)
 
 
-
-
+############# LISTE DE TOUS LES BOUTONS ############
+aleatoire = tk.Button(root, text='Génerer un terrain aleatoire', command=generation_terrain, bg='grey')
 
 
 
