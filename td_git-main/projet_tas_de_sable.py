@@ -48,7 +48,7 @@ quadrillage(taille_plateau)
 def generation_terrain():
     global plateau
     plateau = [[random.randint(0,5) for i in range(taille_plateau)] for j in range(taille_plateau)]
-    print(plateau)
+    return(plateau)
 
 
 ############# LISTE DE TOUS LES BOUTONS ############
