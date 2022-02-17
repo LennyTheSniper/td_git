@@ -21,6 +21,7 @@ from turtle import color
 CANVAS_SIZE = 500
 taille_plateau = int(input("Entrez la taille du plateau: "))
 taille_case_SIZE = CANVAS_SIZE // taille_plateau
+liste_couleur = ["#000000","#65dd21","#d9f828","#f4a118","#ef490c","#ff0000","#ed1b6e","#e21bed","#851bed"]
 
 ################### FONCTIONS ####################
 
@@ -52,26 +53,9 @@ def generation_terrain():
     affichage_couleur_quadrillage(taille_plateau)
 
 def affichage_couleur_quadrillage(taille_plateau):
-    for x in range (taille_plateau):
+    for x in range(taille_plateau):
         for y in range(taille_plateau):
-            if plateau[y][x] == 0:
-                canvas.create_rectangle(x*taille_case_SIZE, y*taille_case_SIZE, (x+1)*taille_case_SIZE, (y+1)*taille_case_SIZE, fill="#000000")
-            elif plateau[y][x] == 1:
-                canvas.create_rectangle(x*taille_case_SIZE, y*taille_case_SIZE, (x+1)*taille_case_SIZE, (y+1)*taille_case_SIZE, fill="#65dd21")
-            elif plateau[y][x] == 2:
-                canvas.create_rectangle(x*taille_case_SIZE, y*taille_case_SIZE, (x+1)*taille_case_SIZE, (y+1)*taille_case_SIZE, fill="#d9f828")
-            elif plateau[y][x] == 3:
-                canvas.create_rectangle(x*taille_case_SIZE, y*taille_case_SIZE, (x+1)*taille_case_SIZE, (y+1)*taille_case_SIZE, fill="#f4a118")
-            elif plateau[y][x] == 4:
-                canvas.create_rectangle(x*taille_case_SIZE, y*taille_case_SIZE, (x+1)*taille_case_SIZE, (y+1)*taille_case_SIZE, fill="#ef490c")
-            elif plateau[y][x] == 5:
-                canvas.create_rectangle(x*taille_case_SIZE, y*taille_case_SIZE, (x+1)*taille_case_SIZE, (y+1)*taille_case_SIZE, fill="#ff0000")
-            elif plateau[y][x] == 6:
-                canvas.create_rectangle(x*taille_case_SIZE, y*taille_case_SIZE, (x+1)*taille_case_SIZE, (y+1)*taille_case_SIZE, fill="#ed1b6e")
-            elif plateau[y][x] == 7:
-                canvas.create_rectangle(x*taille_case_SIZE, y*taille_case_SIZE, (x+1)*taille_case_SIZE, (y+1)*taille_case_SIZE, fill="#e21bed")
-            else:
-                canvas.create_rectangle(x*taille_case_SIZE, y*taille_case_SIZE, (x+1)*taille_case_SIZE, (y+1)*taille_case_SIZE, fill="#851bed")
+            canvas.create_rectangle(x*taille_case_SIZE, y*taille_case_SIZE, (x+1)*taille_case_SIZE, (y+1)*taille_case_SIZE, fill=liste_couleur[plateau[y][x]])
     quadrillage(taille_plateau)
 
 
