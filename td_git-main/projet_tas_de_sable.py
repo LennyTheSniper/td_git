@@ -49,6 +49,33 @@ def generation_terrain():
     global plateau
     plateau = [[random.randint(0,5) for i in range(taille_plateau)] for j in range(taille_plateau)]
     print(plateau)
+    affichage_couleur_quadrillage(taille_plateau)
+
+def affichage_couleur_quadrillage(taille_plateau):
+    for x in range (taille_plateau):
+        for y in range(taille_plateau):
+            if plateau[y][x] == 0:
+                canvas.create_rectangle(x*taille_case_SIZE, y*taille_case_SIZE, (x+1)*taille_case_SIZE, (y+1)*taille_case_SIZE, fill="#000000")
+            elif plateau[y][x] == 1:
+                canvas.create_rectangle(x*taille_case_SIZE, y*taille_case_SIZE, (x+1)*taille_case_SIZE, (y+1)*taille_case_SIZE, fill="#65dd21")
+            elif plateau[y][x] == 2:
+                canvas.create_rectangle(x*taille_case_SIZE, y*taille_case_SIZE, (x+1)*taille_case_SIZE, (y+1)*taille_case_SIZE, fill="#d9f828")
+            elif plateau[y][x] == 3:
+                canvas.create_rectangle(x*taille_case_SIZE, y*taille_case_SIZE, (x+1)*taille_case_SIZE, (y+1)*taille_case_SIZE, fill="#f4a118")
+            elif plateau[y][x] == 4:
+                canvas.create_rectangle(x*taille_case_SIZE, y*taille_case_SIZE, (x+1)*taille_case_SIZE, (y+1)*taille_case_SIZE, fill="#ef490c")
+            elif plateau[y][x] == 5:
+                canvas.create_rectangle(x*taille_case_SIZE, y*taille_case_SIZE, (x+1)*taille_case_SIZE, (y+1)*taille_case_SIZE, fill="#ff0000")
+            elif plateau[y][x] == 6:
+                canvas.create_rectangle(x*taille_case_SIZE, y*taille_case_SIZE, (x+1)*taille_case_SIZE, (y+1)*taille_case_SIZE, fill="#ed1b6e")
+            elif plateau[y][x] == 7:
+                canvas.create_rectangle(x*taille_case_SIZE, y*taille_case_SIZE, (x+1)*taille_case_SIZE, (y+1)*taille_case_SIZE, fill="#e21bed")
+            else:
+                canvas.create_rectangle(x*taille_case_SIZE, y*taille_case_SIZE, (x+1)*taille_case_SIZE, (y+1)*taille_case_SIZE, fill="#851bed")
+    quadrillage(taille_plateau)
+
+
+
 
 
 ############# LISTE DE TOUS LES BOUTONS ############
