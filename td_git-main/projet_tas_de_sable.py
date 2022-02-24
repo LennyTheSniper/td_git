@@ -21,6 +21,7 @@ from turtle import color
 CANVAS_SIZE = 500
 taille_plateau = int(input("Entrez la taille du plateau: "))
 taille_case_SIZE = CANVAS_SIZE // taille_plateau
+#                    0         1         2         3         4         5         6         7         8
 liste_couleur = ["#000000","#65dd21","#d9f828","#f4a118","#ef490c","#ff0000","#ed1b6e","#e21bed","#851bed"]
 
 ################### FONCTIONS ####################
