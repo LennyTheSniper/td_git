@@ -65,11 +65,11 @@ def equilibre_terrain():
         for y in range(taille_plateau):
             if plateau[y][x] >= 4:
                 plateau[y][x] -= 4
-                if y-1 > 0:
+                if y-1 >= 0:
                     plateau[y-1][x] += 1
                 if y+1 < taille_plateau:
                     plateau[y+1][x] += 1
-                if x-1 > 0:
+                if x-1 >= 0:
                     plateau[y][x-1] += 1
                 if x+1 < taille_plateau:
                     plateau[y][x+1] += 1
