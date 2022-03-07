@@ -78,11 +78,34 @@ def equilibre_terrain():
 
 def sauvegarde () : 
     fic = open ("sauvegarde", "w")
-    fic.write(str(plateau))
+    fic.write(str(taille_plateau)+"\n")
+    for i in range (taille_plateau):
+        for j in range (taille_plateau):
+            fic.write(str(plateau[i][j])+" ")
     fic.close()
 
+
 def charge () :
-    pass
+    global taille_plateau, plateau
+    fic = open ("sauvegarde", "r")
+    while True:
+        ligne = fic.readline()
+        if ligne == "":
+            affichage_couleur_quadrillage(taille_plateau)
+            break
+        else:
+            if " " not in ligne:
+                taille_plateau = int(ligne)
+            else:
+                split = ligne.split()
+                for i in range (taille_plateau):
+                    for j in range (taille_plateau):
+                        plateau[i][j] = int(split[i*taille_plateau+j])
+
+
+
+
+        
 
 
 
@@ -96,13 +119,14 @@ def charge () :
 aleatoire = tk.Button(root, text='Génerer un terrain aleatoire', command=generation_terrain, bg='grey')
 equilibre_terrain = tk.Button(root, text='Équilibrer le terrain', command=equilibre_terrain, bg='grey')
 sauvegarder = tk.Button(root, text = "sauvegarder", command = sauvegarde, bg = 'grey')
-
+charger = tk.Button(root, text = "charger une sauvegarde", command = charge, bg = 'grey')
 
 
 ############## CREATION DE LA FENETRE #############
 
-canvas.grid(row=0, column=1, rowspan=3)
+canvas.grid(row=0, column=1, rowspan=4)
 aleatoire.grid(row=0, column=0)
 equilibre_terrain.grid(row=1, column=0, ipadx=22)
 sauvegarder.grid(row=2, column=0)
+charger.grid(row=3, column=0)
 root.mainloop()
