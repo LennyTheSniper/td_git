@@ -79,7 +79,9 @@ def equilibre_terrain():
 def sauvegarde () : 
     fic = open ("sauvegarde", "w")
     fic.write(str(taille_plateau) + "\n")
-    fic.write(str(plateau))
+    for i in range (taille_plateau):
+        for j in range (taille_plateau):
+            fic.write(str(plateau[i][j])+ "\n")
     fic.close()
 
 
