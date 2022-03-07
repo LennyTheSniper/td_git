@@ -77,12 +77,24 @@ def equilibre_terrain():
 
     affichage_couleur_quadrillage(taille_plateau)
 
+<<<<<<< HEAD
 def sauvegarde () :
     pickle.dump (plateau, open("sauvegarde", "w"))
     pickle.dump (taille_plateau, open ("sauvegarde_taille", "w"))
 
+=======
+def sauvegarde () : 
+    fic = open ("sauvegarde", "w")
+    fic.write(str(taille_plateau)+"\n")
+    for i in range (taille_plateau):
+        for j in range (taille_plateau):
+            fic.write(str(plateau[i][j])+" ")
+    fic.close()
+>>>>>>> 06318e9c546033955e13355062af8cb679798fb2
+
 
 def charge () :
+<<<<<<< HEAD
     taille_plateau = pickle.load(open("sauvegarde_taille", "r"))
     plateau = pickle.load (open("sauvegarde","r"))
     affichage_couleur_quadrillage(taille_plateau)
@@ -115,6 +127,25 @@ def charge () :
             plateau [i][j] = int(plat[i*taille_plateau+j])
 
 """
+=======
+    global taille_plateau, plateau
+    fic = open ("sauvegarde", "r")
+    while True:
+        ligne = fic.readline()
+        if ligne == "":
+            affichage_couleur_quadrillage(taille_plateau)
+            break
+        else:
+            if " " not in ligne:
+                taille_plateau = int(ligne)
+            else:
+                split = ligne.split()
+                for i in range (taille_plateau):
+                    for j in range (taille_plateau):
+                        plateau[i][j] = int(split[i*taille_plateau+j])
+
+
+>>>>>>> 06318e9c546033955e13355062af8cb679798fb2
 
 
         
