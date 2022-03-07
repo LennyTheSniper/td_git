@@ -76,9 +76,13 @@ def equilibre_terrain():
 
     affichage_couleur_quadrillage(taille_plateau)
 
+def sauvegarde () : 
+    fic = open ("sauvegarde", "w")
+    fic.write(str(plateau))
+    fic.close()
 
-
-
+def charge () :
+    pass
 
 
 
@@ -91,12 +95,14 @@ def equilibre_terrain():
 ############# LISTE DE TOUS LES BOUTONS ############
 aleatoire = tk.Button(root, text='Génerer un terrain aleatoire', command=generation_terrain, bg='grey')
 equilibre_terrain = tk.Button(root, text='Équilibrer le terrain', command=equilibre_terrain, bg='grey')
+sauvegarder = tk.Button(root, text = "sauvegarder", command = sauvegarde, bg = 'grey')
 
 
 
 ############## CREATION DE LA FENETRE #############
 
-canvas.grid(row=0, column=1, rowspan=2)
+canvas.grid(row=0, column=1, rowspan=3)
 aleatoire.grid(row=0, column=0)
 equilibre_terrain.grid(row=1, column=0, ipadx=22)
+sauvegarder.grid(row=2, column=0)
 root.mainloop()
