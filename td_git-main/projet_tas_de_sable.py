@@ -77,28 +77,32 @@ def equilibre_terrain():
     affichage_couleur_quadrillage(taille_plateau)
 
 def sauvegarde () : 
-    fic1 = open ("sauvegarde_taille", "w")
-    fic2 = open ("sauvegarde", "w")
-    fic1.write(str(taille_plateau))
+    fic = open ("sauvegarde", "w")
+    fic.write(str(taille_plateau)+"\n")
     for i in range (taille_plateau):
         for j in range (taille_plateau):
-            fic2.write(str(plateau[i][j])+ " ")
-    fic1.close()
-    fic2.close()
+            fic.write(str(plateau[i][j])+" ")
+    fic.close()
 
-"""
+
 def charge () :
     global taille_plateau, plateau
-    fic1 = open ("sauvegarde_taille", "r")
-    fic2 = open ("sauvegarde", "r")
-    taille = str(fic1)
-    taille_plateau = int(taille)
-    plat = fic2.split()
-    for i in range (taille_plateau) :
-        for j in range (taille_plateau) : 
-            plateau [i][j] = int(plat[i*taille_plateau+j])
+    fic = open ("sauvegarde", "r")
+    while True:
+        ligne = fic.readline()
+        if ligne == "":
+            affichage_couleur_quadrillage(taille_plateau)
+            break
+        else:
+            if " " not in ligne:
+                taille_plateau = int(ligne)
+            else:
+                split = ligne.split()
+                for i in range (taille_plateau):
+                    for j in range (taille_plateau):
+                        plateau[i][j] = int(split[i*taille_plateau+j])
 
-"""
+
 
 
         
