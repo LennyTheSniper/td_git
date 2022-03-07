@@ -15,7 +15,6 @@ Mail prof : coline.gianfrotta@ens.uvsq.fr
 import random
 import tkinter as tk
 from turtle import color
-import pickle as pickle
 
 ############### VARIABLES GLOBALES ###############
 
@@ -77,12 +76,6 @@ def equilibre_terrain():
 
     affichage_couleur_quadrillage(taille_plateau)
 
-<<<<<<< HEAD
-def sauvegarde () :
-    pickle.dump (plateau, open("sauvegarde", "w"))
-    pickle.dump (taille_plateau, open ("sauvegarde_taille", "w"))
-
-=======
 def sauvegarde () : 
     fic = open ("sauvegarde", "w")
     fic.write(str(taille_plateau)+"\n")
@@ -90,44 +83,9 @@ def sauvegarde () :
         for j in range (taille_plateau):
             fic.write(str(plateau[i][j])+" ")
     fic.close()
->>>>>>> 06318e9c546033955e13355062af8cb679798fb2
 
 
 def charge () :
-<<<<<<< HEAD
-    taille_plateau = pickle.load(open("sauvegarde_taille", "r"))
-    plateau = pickle.load (open("sauvegarde","r"))
-    affichage_couleur_quadrillage(taille_plateau)
-    
-    
-
-
-
-
-"""
-    fic1 = open ("sauvegarde_taille", "w")
-    fic2 = open ("sauvegarde", "w")
-    fic1.write(str(taille_plateau))
-    for i in range (taille_plateau):
-        for j in range (taille_plateau):
-            fic2.write(str(plateau[i][j])+ " ")
-    fic1.close()
-    fic2.close()
-
-
-def charge () :
-    global taille_plateau, plateau
-    fic1 = open ("sauvegarde_taille", "r")
-    fic2 = open ("sauvegarde", "r")
-    taille = str(fic1)
-    taille_plateau = int(taille)
-    plat = fic2.split()
-    for i in range (taille_plateau) :
-        for j in range (taille_plateau) : 
-            plateau [i][j] = int(plat[i*taille_plateau+j])
-
-"""
-=======
     global taille_plateau, plateau
     fic = open ("sauvegarde", "r")
     while True:
@@ -145,7 +103,6 @@ def charge () :
                         plateau[i][j] = int(split[i*taille_plateau+j])
 
 
->>>>>>> 06318e9c546033955e13355062af8cb679798fb2
 
 
         
