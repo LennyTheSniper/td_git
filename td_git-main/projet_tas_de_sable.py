@@ -16,6 +16,7 @@ import random
 import tkinter as tk
 from turtle import color
 import time
+import copy
 
 ############### VARIABLES GLOBALES ###############
 
@@ -51,7 +52,6 @@ quadrillage(taille_plateau)
 def generation_terrain():
     global plateau
     plateau = [[random.randint(0,5) for i in range(taille_plateau)] for j in range(taille_plateau)]
-    print(plateau)
     affichage_couleur_quadrillage(plateau)
 
 def affichage_couleur_quadrillage(plateau_val):
@@ -63,7 +63,7 @@ def affichage_couleur_quadrillage(plateau_val):
 
 def equilibre_terrain():
     global plateau, taille_plateau
-    plateau_mem = plateau.copy()
+    plateau_mem = copy.deepcopy(plateau)
     for x in range(taille_plateau):
         for y in range(taille_plateau):
             if plateau[y][x] >= 4:
@@ -76,7 +76,7 @@ def equilibre_terrain():
                     plateau_mem[y][x-1] += 1
                 if x+1 < taille_plateau:
                     plateau_mem[y][x+1] += 1
-    plateau = plateau_mem.copy()
+    plateau = copy.deepcopy(plateau_mem)
     affichage_couleur_quadrillage(plateau)
     
 
@@ -88,8 +88,8 @@ def terrain_identite():
     affichage_couleur_quadrillage(plateau)
 
 
-def sauvegarde () : 
-    fic = open ("sauvegarde", "w")
+def sauvegarde():
+    fic = open("sauvegarde", "w")
     fic.write(str(taille_plateau)+"\n")
     for i in range (taille_plateau):
         for j in range (taille_plateau):
@@ -97,9 +97,10 @@ def sauvegarde () :
     fic.close()
 
 
-def charge () :
+def charge():
     global taille_plateau, plateau
-    fic = open ("sauvegarde", "r")
+    generation_terrain()
+    fic = open("sauvegarde", "r")
     while True:
         ligne = fic.readline()
         if ligne == "":
