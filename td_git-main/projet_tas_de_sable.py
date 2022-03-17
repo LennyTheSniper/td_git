@@ -15,6 +15,7 @@ Mail prof : coline.gianfrotta@ens.uvsq.fr
 import random
 import tkinter as tk
 from turtle import color
+import time
 
 ############### VARIABLES GLOBALES ###############
 
@@ -51,30 +52,41 @@ def generation_terrain():
     global plateau
     plateau = [[random.randint(0,5) for i in range(taille_plateau)] for j in range(taille_plateau)]
     print(plateau)
-    affichage_couleur_quadrillage(taille_plateau)
+    affichage_couleur_quadrillage(plateau)
 
-def affichage_couleur_quadrillage(taille_plateau):
+def affichage_couleur_quadrillage(plateau_val):
+    canvas.delete("all")
     for x in range(taille_plateau):
         for y in range(taille_plateau):
-            canvas.create_rectangle(x*taille_case_SIZE, y*taille_case_SIZE, (x+1)*taille_case_SIZE, (y+1)*taille_case_SIZE, fill=liste_couleur[plateau[y][x]])
+            canvas.create_rectangle(x*taille_case_SIZE, y*taille_case_SIZE, (x+1)*taille_case_SIZE, (y+1)*taille_case_SIZE, fill=liste_couleur[plateau_val[y][x]])
     quadrillage(taille_plateau)
 
 def equilibre_terrain():
     global plateau, taille_plateau
+    plateau_mem = plateau.copy()
     for x in range(taille_plateau):
         for y in range(taille_plateau):
             if plateau[y][x] >= 4:
-                plateau[y][x] -= 4
+                plateau_mem[y][x] -= 4
                 if y-1 >= 0:
-                    plateau[y-1][x] += 1
+                    plateau_mem[y-1][x] += 1
                 if y+1 < taille_plateau:
-                    plateau[y+1][x] += 1
+                    plateau_mem[y+1][x] += 1
                 if x-1 >= 0:
-                    plateau[y][x-1] += 1
+                    plateau_mem[y][x-1] += 1
                 if x+1 < taille_plateau:
-                    plateau[y][x+1] += 1
+                    plateau_mem[y][x+1] += 1
+    plateau = plateau_mem.copy()
+    affichage_couleur_quadrillage(plateau)
+    
 
-    affichage_couleur_quadrillage(taille_plateau)
+
+def terrain_identite():
+    global plateau
+    plateau = [[4 for i in range(taille_plateau)] for j in range(taille_plateau)]
+    print(plateau)
+    affichage_couleur_quadrillage(plateau)
+
 
 def sauvegarde () : 
     fic = open ("sauvegarde", "w")
@@ -91,7 +103,7 @@ def charge () :
     while True:
         ligne = fic.readline()
         if ligne == "":
-            affichage_couleur_quadrillage(taille_plateau)
+            affichage_couleur_quadrillage(plateau)
             break
         else:
             if " " not in ligne:
@@ -118,15 +130,16 @@ def charge () :
 ############# LISTE DE TOUS LES BOUTONS ############
 aleatoire = tk.Button(root, text='Génerer un terrain aleatoire', command=generation_terrain, bg='grey')
 equilibre_terrain = tk.Button(root, text='Équilibrer le terrain', command=equilibre_terrain, bg='grey')
-sauvegarder = tk.Button(root, text = "sauvegarder", command = sauvegarde, bg = 'grey')
-charger = tk.Button(root, text = "charger une sauvegarde", command = charge, bg = 'grey')
-
+sauvegarder = tk.Button(root, text = "Sauvegarder le terrain", command = sauvegarde, bg = 'grey')
+charger = tk.Button(root, text = "Charger une sauvegarde", command = charge, bg = 'grey')
+identite = tk.Button(root, text = "Charger le terrain identité", command = terrain_identite, bg = 'grey')
 
 ############## CREATION DE LA FENETRE #############
 
-canvas.grid(row=0, column=1, rowspan=4)
+canvas.grid(row=0, column=1, rowspan=5)
 aleatoire.grid(row=0, column=0)
 equilibre_terrain.grid(row=1, column=0, ipadx=22)
 sauvegarder.grid(row=2, column=0)
 charger.grid(row=3, column=0)
+identite.grid(row=4, column=0)
 root.mainloop()
